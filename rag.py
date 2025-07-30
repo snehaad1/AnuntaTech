@@ -7,7 +7,18 @@ import faiss
 import os
 
 # Initialize OpenAI client
-openai.api_key = "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"  # Replace with your actual API key
+from dotenv import load_dotenv
+import os
+import openai
+
+# Load environment variables from .env
+load_dotenv()
+
+# Get the key from the environment
+api_key = os.getenv("OPENAI_API_KEY")
+
+# Use the key with OpenAI
+openai.api_key = api_key
 
 # Ensure the sentence tokenizer is available
 nltk.download("punkt")
